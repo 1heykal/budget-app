@@ -4,6 +4,8 @@ namespace BudgetApp.Models
 {
     public class ApplicationDbContext : DbContext
     {
+        public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
 
         //private readonly string _connectionString;
 

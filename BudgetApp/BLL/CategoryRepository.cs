@@ -4,29 +4,29 @@ namespace BudgetApp.BLL
 {
     public class CategoryRepository : IRepository<Category>
     {
-        public Category Create(Category entity)
+        private readonly ApplicationDbContext _context;
+
+        public CategoryRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public void Create(Category entity)
+        {
+            _context.Categories.Add(entity);
+        }
+
+        public Category GetById(Guid id) => _context.Categories.FirstOrDefault(c => c.Id == id);
+        public IEnumerable<Category> GetAll() => _context.Categories.ToList();
+
+        public void Update(Category entity)
+        {
+            _context.Categories.Update(entity);
         }
 
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Category> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Category GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Category entity)
-        {
-            throw new NotImplementedException();
+            _context.Categories.Remove(GetById(id));
         }
     }
 }
