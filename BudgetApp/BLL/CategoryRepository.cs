@@ -2,7 +2,7 @@
 
 namespace BudgetApp.BLL
 {
-    public class CategoryRepository : IRepository<Category>
+    public class CategoryRepository : IRepository<Category, int>
     {
         private readonly ApplicationDbContext _context;
 
@@ -16,7 +16,7 @@ namespace BudgetApp.BLL
             _context.Categories.Add(entity);
         }
 
-        public Category GetById(Guid id) => _context.Categories.FirstOrDefault(c => c.Id == id);
+        public Category GetById(int id) => _context.Categories.FirstOrDefault(c => c.Id == id);
         public IEnumerable<Category> GetAll() => _context.Categories.ToList();
 
         public void Update(Category entity)
@@ -24,7 +24,7 @@ namespace BudgetApp.BLL
             _context.Categories.Update(entity);
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             _context.Categories.Remove(GetById(id));
         }

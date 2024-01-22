@@ -2,7 +2,7 @@
 
 namespace BudgetApp.BLL
 {
-    public class TransactionRepository : IRepository<Transaction>
+    public class TransactionRepository : IRepository<Transaction, Guid>
     {
         private readonly ApplicationDbContext _context;
 

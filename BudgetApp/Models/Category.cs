@@ -6,7 +6,11 @@ namespace BudgetApp.Models
     public class Category
     {
         [Key]
-        public Guid Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(100)]
         public string Name { get; set; }
 
     }
