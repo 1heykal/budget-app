@@ -6,9 +6,9 @@ namespace BudgetApp.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly IRepository<Category> _repository;
+        private readonly IRepository<Category, int> _repository;
 
-        public CategoryController(IRepository<Category> repository)
+        public CategoryController(IRepository<Category, int> repository)
         {
             _repository = repository;
         }

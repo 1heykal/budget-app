@@ -16,7 +16,7 @@ namespace BudgetApp.Models
         [DataType(DataType.Currency)]
         [Required]
         public decimal Amount { get; set; }
-        public string CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }

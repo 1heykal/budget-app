@@ -13,5 +13,7 @@ namespace BudgetApp.Models
         [StringLength(100)]
         public string Name { get; set; }
 
+        public ICollection<Transaction> Transactions { get; set; }
+
     }
 }
