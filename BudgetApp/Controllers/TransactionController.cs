@@ -20,10 +20,14 @@ namespace BudgetApp.Controllers
             return View(transactions);
         }
 
-        [HttpGet("/id")]
-        public IActionResult GetById(Guid id)
+        [HttpGet("{id}")]
+        public IActionResult Get(Guid id)
         {
             var transaction = _repository.GetById(id);
+            if (transaction is null)
+            {
+                return RedirectToAction("Index");
+            }
             return View(transaction);
         }
 
@@ -38,16 +42,45 @@ namespace BudgetApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                // transaction.Id = new Guid();
                 _repository.Add(transaction);
             }
 
-            return View();
+            return RedirectToAction("Get", transaction.Id);
         }
+
+        [HttpGet]
+        public IActionResult Edit(Guid id)
+        {
+            var transaction = _repository.GetById(id);
+            if (transaction is null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(transaction);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Transaction transaction)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.Update(transaction);
+            }
+
+            return RedirectToAction("Get", transaction.Id);
+        }
+
+
 
         [HttpGet]
         public IActionResult Delete(Guid id)
         {
             var transaction = _repository.GetById(id);
+            if (transaction is null)
+            {
+                return RedirectToAction("Index");
+            }
             return View(transaction);
         }
 
@@ -58,7 +91,7 @@ namespace BudgetApp.Controllers
             {
                 _repository.Delete(transaction.Id);
             }
-            return View();
+            return RedirectToAction("Index");
         }
 
 

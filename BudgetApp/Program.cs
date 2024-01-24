@@ -1,3 +1,4 @@
+using BudgetApp.BLL;
 using BudgetApp.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,9 @@ builder.Services.AddControllersWithViews();
 
 string connectionString = builder.Configuration.GetConnectionString("SqlServer");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IRepository<Category, int>, CategoryRepository>();
+builder.Services.AddScoped<IRepository<Transaction, Guid>, TransactionRepository>();
 
 
 var app = builder.Build();
@@ -29,6 +33,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Transaction}/{action=Index}/{id?}");
 
 app.Run();

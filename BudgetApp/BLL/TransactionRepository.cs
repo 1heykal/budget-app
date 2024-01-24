@@ -15,7 +15,6 @@ namespace BudgetApp.BLL
         {
             _context.Transactions.Add(entity);
             _context.SaveChanges();
-
         }
 
         public Transaction GetById(Guid id) => _context.Transactions.FirstOrDefault(t => t.Id == id);

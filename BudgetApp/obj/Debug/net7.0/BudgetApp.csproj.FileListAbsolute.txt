@@ -73,3 +73,9 @@ E:\Development\c#\BudgetApp\BudgetApp\obj\Debug\net7.0\refint\BudgetApp.dll
 E:\Development\c#\BudgetApp\BudgetApp\obj\Debug\net7.0\BudgetApp.pdb
 E:\Development\c#\BudgetApp\BudgetApp\obj\Debug\net7.0\BudgetApp.genruntimeconfig.cache
 E:\Development\c#\BudgetApp\BudgetApp\obj\Debug\net7.0\ref\BudgetApp.dll
+E:\Development\c#\BudgetApp\BudgetApp\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+E:\Development\c#\BudgetApp\BudgetApp\bin\Debug\net7.0\Microsoft.OpenApi.dll
+E:\Development\c#\BudgetApp\BudgetApp\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Development\c#\BudgetApp\BudgetApp\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Development\c#\BudgetApp\BudgetApp\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Development\c#\BudgetApp\BudgetApp\obj\Debug\net7.0\BudgetApp.MvcApplicationPartsAssemblyInfo.cs

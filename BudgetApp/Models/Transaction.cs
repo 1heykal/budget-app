@@ -12,6 +12,7 @@ namespace BudgetApp.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
+        public string Type { get; set; }
 
         [DataType(DataType.Currency)]
         [Required]

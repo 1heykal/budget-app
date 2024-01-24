@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Transaction>
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<ol>
+    @foreach(var t in Model)
+    {
+        <li>@t.Id - @t.Name - @t.Type - @t.Amount @t.CategoryId @t.Date</li>
+    }
+</ol>
+
