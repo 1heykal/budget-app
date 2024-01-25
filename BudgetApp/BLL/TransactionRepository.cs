@@ -1,4 +1,5 @@
 ﻿using BudgetApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetApp.BLL
 {
@@ -17,9 +18,9 @@ namespace BudgetApp.BLL
             _context.SaveChanges();
         }
 
-        public Transaction GetById(Guid id) => _context.Transactions.FirstOrDefault(t => t.Id == id);
+        public Transaction GetById(Guid id) => _context.Transactions.Include(t => t.Category).FirstOrDefault(t => t.Id == id);
 
-        public IEnumerable<Transaction> GetAll() => _context.Transactions.ToList();
+        public IEnumerable<Transaction> GetAll() => _context.Transactions.Include(t => t.Category).ToList();
 
         public void Update(Transaction entity)
         {

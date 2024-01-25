@@ -13,21 +13,6 @@ namespace BudgetApp.Controllers
             _repository = repository;
         }
 
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create(Category category)
-        {
-            if (ModelState.IsValid)
-            {
-                _repository.Add(category);
-            }
-            return RedirectToAction("Get", category.Id);
-        }
 
         [HttpGet]
         public IActionResult Index()
@@ -47,6 +32,26 @@ namespace BudgetApp.Controllers
             }
             return View(category);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.Add(category);
+            }
+            return RedirectToAction("Get", category.Id);
+        }
+
+       
+
+        
 
         [HttpGet]
         public IActionResult Edit(int id)

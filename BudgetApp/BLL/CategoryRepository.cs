@@ -19,7 +19,7 @@ namespace BudgetApp.BLL
         }
 
         public Category GetById(int id) => _context.Categories.FirstOrDefault(c => c.Id == id);
-        public IEnumerable<Category> GetAll() => _context.Categories.ToList();
+        public IEnumerable<Category> GetAll() => _context.Categories.Include(c => c.Transactions).ToList();
 
         public void Update(Category entity)
         {
